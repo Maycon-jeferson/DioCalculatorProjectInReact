@@ -1,24 +1,31 @@
 import Imput from './components/Imput'
+// Importa um componente chamado Input de um arquivo chamado Input dentro do diretório ./components
+
 import Buttom from './components/Button'
+//mporta um componente chamado Button de um arquivo chamado Button dentro do diretório ./components
 
 import { Conteiner, Content, Row } from "./styles";
 import { useState } from 'react';
+// Importa os estilos CSS do componente a partir de um arquivo chamado styles.js
+//Importa o hook useState do React para gerenciar o estado do componente
 
-const App = () => {
+const App = () => { //Define o componente funcional App, que é exportado como padrão.
   const [currentNumber, setCurrentNumber] = useState(0);
   const [firstNumber, setFirstNumber] = useState('0')
   const [operation, setOperation] = useState('')
+//Inicializa três estados usando o hook useState: currentNumber (para armazenar o número atual digitado), firstNumber (para armazenar o primeiro número da operação) e operation (para armazenar o tipo de operação).
 
   const handleClear = () => {
     setCurrentNumber('0')
     setFirstNumber('0')
     setOperation('')
   };
-
+//Define funções para lidar com eventos, como limpar a calculadora, adicionar números, realizar operações de soma, subtração, multiplicação, divisão e calcular o resultado final.
 
   const handleAppNumber = (number) => {
     setCurrentNumber(prev => `${prev === '0' ? '' :prev}${number}`)
   }
+  //Renderiza o componente Container, que contém a estrutura da calculadora com Inputs para exibir os números e Buttons para interação do usuário.
 
   const handleSumNunber = () =>{
 
@@ -105,6 +112,9 @@ const App = () => {
   }
 
   return (
+    //Os botões são configurados com eventos onClick que chamam as funções correspondentes para atualizar os estados e realizar cálculos.
+    //Os componentes Input e Button são usados para renderizar caixas de entrada de texto e botões, respectivamente, na interface da calculadora.
+
     <Conteiner>
       <Content>
         <Imput value={currentNumber}/>
@@ -140,5 +150,6 @@ const App = () => {
     </Conteiner>
   );
 }
+//Os estilos CSS estão definidos no arquivo styles.js e são importados para estilizar a aparência da calculadora.
 
 export default App;

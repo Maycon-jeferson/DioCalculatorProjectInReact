@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+//mporta a função styled do pacote styled-components, que é usada para criar componentes estilizados em React.
 
 export const Conteiner = styled.div`
     width: 100%;
